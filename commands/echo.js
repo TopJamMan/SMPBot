@@ -1,9 +1,7 @@
-let aliases = ["echo", "simonsays"]
+exports.aliases = ["echo", "simonsays"]
 
-function echo(bot, args) {
+exports.run = function (bot, args) {
+    if (args.length === 0) return
     let message = args.join(" ")
     bot.chat(message)
 }
-
-exports.aliases = aliases
-exports.run = echo
