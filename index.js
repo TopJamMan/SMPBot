@@ -1,8 +1,8 @@
 const mineflayer = require('mineflayer')
 
-let login = require('config.json');
+let login = require('./config.json')
 
-const bot= mineflayer.createBot({
+exports.bot = bot = mineflayer.createBot({
     "username": login.username,
     "password": login.password,
     "host": login.host,
@@ -10,4 +10,3 @@ const bot= mineflayer.createBot({
     "version": login.version,
     "auth":login.auth
 })
-
