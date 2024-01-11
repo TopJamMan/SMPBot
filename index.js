@@ -1,12 +1,16 @@
-const mineflayer = require('mineflayer')
+const mineflayer= require('mineflayer')
 
-let login = require('./config.json')
+let config = require('./config.json')
 
-exports.bot = bot = mineflayer.createBot({
-    "username": login.username,
-    "password": login.password,
-    "host": login.host,
-    "port": login.port,
-    "version": login.version,
-    "auth":login.auth
+bot = mineflayer.createBot({
+    "username": config.username,
+    "password": config.password,
+    "host": config.host,
+    "port": config.port,
+    "version": config.version,
+    "auth":config.auth
+})
+require("fs").readdirSync("./events/").forEach(function(file) {
+    let currentFile = require("./events/" + file);
+    currentFile.onEvent(bot)
 })

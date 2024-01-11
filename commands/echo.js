@@ -1,7 +1,7 @@
-let aliases = ["echo"]
+let aliases = ["echo", "simonsays"]
 
 function echo(bot, args) {
-    let message = args.join()
+    let message = args.join(" ")
     bot.chat(message)
 }
 
